@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react"
+import Intro from "./Intro"
+import Questions from "./Questions"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default function App() {
+    const [gameStart, setGameStart] = React.useState(false)
+    return (
+        <div className="img_and_body">
+            <img className="blob-1" src="./images/blob1.png" alt="Blob 1"></img>
+            {
+                gameStart 
+                ? 
+                <Questions gameStart={gameStart} setGameStart={setGameStart}/> 
+                : 
+                <Intro setGameStart={setGameStart}/>
+            }
+            <img className="blob-2" src="./images/blob2.png" alt="Blob 2"></img>
+        </div>
+    )
 }
-
-export default App;

@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+*{
+    margin: 0px;
+    padding: 0px;
+}
+html{
+    position: relative;
+}
+body{
+    background-color: #F5F7FB;
+}
+h1{
+    font-family: 'Karla',sans-serif;
+}
+.img_and_body{
+    /* position: relative; */
+    /* height: 100vh; */
+}
+.intro-page-body {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+}
+.intro-page-body h1{
+    text-align: center;
+}
+.intro-page-body p{
+    font-family: 'Inter', sans-serif;
+    margin: 10px 20px;
+    text-align: center;
+    text-align: center;
+}
+.intro-page-body button{
+    background-color: #4D5B9E;
+    color: #F5F7FB;
+    border: none;
+    border-radius: 10px;
+    height: 52px;
+    width: 190px;
+    margin-top: 25px;
+    font-weight: 500;
+    /* font-size: 1.125rem; */
+}
+.blob-1{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 30vw;
+    z-index: -1;
+}
+button{
+    cursor: pointer;
+}
+.blob-2{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 25vw;
+    z-index: -1;
+}
+img{
+    max-width: 100%;
+}
+@media screen and (max-width: 425px) {
+    .blob-1{
+        width: 45vw;
+        z-index: -1;
+    }
+    .blob-2{
+        width: 45vw;
+        z-index: -1;
+    }
+}
+.choice{
+    min-width: 65px;
+    border: 1px solid #4D5B9E;
+    border-radius: 7px;
+    margin: 10px 15px 10px 0px;
+    font-family: 'Inter', sans-serif;
+    padding: 3px 10px;
+}
+.hz{
+    color: #DBDEF0;
+    border: 0.794239px solid #DBDEF0;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+.blue-button{
+    background-color: #4D5B9E;
+    height: 35px;
+    width: 120px;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Inter', sans-serif;
+    color: white;
+}
+.all-questions{
+    margin: 0 1.5rem;
+}
+.one-question p{
+    font-weight: bold;
+    font-family: 'Karla', sans-serif;
+}
+.layout{
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* margin: 4rem 0; */
+}
+.submit {
+    color: white;
+}
+.result {
+    margin-top: 2.5rem;
+    display: flex;
+    width: 125%;
+    justify-content: space-evenly;
+    font-family: 'Inter', sans-serif;
+}
+.score{
+    display: flex;
+    align-items: center;
+}
