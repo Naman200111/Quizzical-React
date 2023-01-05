@@ -11,28 +11,31 @@ export default function Questions(props) {
             .then(res => res.json())
             .then(data => setData(data.results))
     }, []) 
- 
+
     React.useEffect(() => {
         let updatedData = []
+        let optionsArray = [] 
         for(let i=0; i<data.length; i++) {
+            optionsArray.push(data[i].correct_answer)
+            for(let j=0; j<data[i].incorrect_answers.length; j++)
+                optionsArray.push(data[i].incorrect_answers[j])
+            
             let newOptions = []
-            newOptions.push(
-                {
-                    value: data[i].correct_answer,
-                    id: i * (data[i].incorrect_answers.length+1) + 1,
-                    isHeld: false,
-                    correct_answer: data[i].correct_answer
-                }
-            )
-            for(let j=0; j<data[i].incorrect_answers.length; j++) {
-                newOptions.push({
-                    value: data[i].incorrect_answers[j],
-                    id: i * (data[i].incorrect_answers.length+1) + (j+2),
-                    isHeld: false,
-                    correct_answer: data[i].correct_answer
-                })
+            let incorrect_answers_length = data[i].incorrect_answers.length
+            let correct = data[i].correct_answer
+            
+            while(optionsArray.length) {
+                let randomIndex = Math.floor(Math.random() * optionsArray.length)
+                newOptions.push(
+                    {
+                        value: optionsArray[randomIndex],
+                        id: i * (incorrect_answers_length+1) + 1,
+                        isHeld: false,
+                        correct_answer: correct
+                    }
+                )
+                optionsArray.splice(randomIndex,1)
             }
-
             updatedData.push({
                 id: i+1,
                 ques: data[i].question,
@@ -42,60 +45,13 @@ export default function Questions(props) {
         setUpdatedData(updatedData)
     }, [data]);
 
-    // render options whenever updatedData changes
-
-    React.useEffect(() => {
-        <div>
-            console.log("ran")
-            <div className="all-questions">
-                {questionsWithOptions}
-            </div>
-        </div>
-    },[updatedData])
-
-    // do the required changes in updatedData
-    console.log(updatedData)   
-    function handleClick(setOn, options, item) {
-        console.log(options)
-        // console.log(item)
-        setOn(oldvalue => !oldvalue)
-
-        for(let i=0; i<updatedData.length; i++) {
-            for(let j=0; j<updatedData[i].options.length; j++) {
-                if(updatedData[i].options[j].id === item.id) {
-                    updatedData[i].options[j] = {
-                        ...updatedData[i].options[j],
-                        isHeld: !updatedData[i].options[j].isHeld
-                    }
-                }
-                else {
-                    updatedData[i].options[j] = {
-                        ...updatedData[i].options[j],
-                        isHeld: false
-                    }
-                }
-            }
-        }
-
-        // props.item.isHeld = on;
-
-        // let original_option = item.value;
-        // for(let i=0; i<options.length; i++) {
-        //     let curr_option = options[i];
-        //     if(curr_option.value === original_option) {
-        //         curr_option.isHeld = true;
-        //     }
-        //     else {
-        //         curr_option.isHeld = false;
-        //     }
-        // }
-        // console.log(options)
+    function handleClick(setOn) {
+        setOn(prevOn => !prevOn);
     }
 
     function showOptions(item) {
-        let allOptions = item;
         const options = item.map(function(item) {
-            return <Options item={item} allOptions={allOptions} handleClick={handleClick}/>
+            return <Options item={item} handleClick={handleClick}/>
         })
         return options
     }
@@ -123,7 +79,6 @@ export default function Questions(props) {
                 })
             return item
         })
-        // console.log(correctCount)
     }
 
     return (

@@ -13,10 +13,10 @@ body{
 h1{
     font-family: 'Karla',sans-serif;
 }
-.img_and_body{
-    /* position: relative; */
-    /* height: 100vh; */
-}
+/* .img_and_body{
+    position: relative;
+    height: 100vh;
+} */
 .intro-page-body {
     align-items: center;
     display: flex;

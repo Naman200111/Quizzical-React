@@ -2,7 +2,6 @@ import React from "react"
 import OptionsCheck from "./OptionsCheck"
 
 export default function AnswerSheet(props) {
-    // console.log(props)
     let updatedData = props.data;
     function resetGame() {
         props.setGameStart(oldvalue => !oldvalue)
@@ -29,7 +28,7 @@ export default function AnswerSheet(props) {
             <div className="all-questions">
                 {questionsWithOptions}
                 <div className="result">
-                    <div class="score">
+                    <div className="score">
                         <h2>{`You scored ${props.correct}/5 correct answer`}</h2>
                     </div>
                     <button className="blue-button" onClick={resetGame}>Play Again</button>
