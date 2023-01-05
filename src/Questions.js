@@ -23,7 +23,7 @@ export default function Questions(props) {
             let newOptions = []
             let incorrect_answers_length = data[i].incorrect_answers.length
             let correct = data[i].correct_answer
-            
+
             while(optionsArray.length) {
                 let randomIndex = Math.floor(Math.random() * optionsArray.length)
                 newOptions.push(
@@ -72,11 +72,14 @@ export default function Questions(props) {
     function toggleShowAnswers() {
         setShowAnswers(oldvalue => !oldvalue);
         updatedData.map(function(item){
+            let heldButIncorrect = false
             item.options.map(function(option) {
-                    if(option.isHeld && option.correct_answer === option.value)
-                        setCorrectCount(oldvalue => oldvalue+1);
+                    if(option.isHeld && option.correct_answer !== option.value)
+                    heldButIncorrect = true
                     return option
                 })
+            if(!heldButIncorrect)
+                setCorrectCount(oldvalue => oldvalue+1);
             return item
         })
     }

@@ -3,7 +3,7 @@ import Intro from "./Intro"
 import Questions from "./Questions"
 
 export default function App() {
-    const [gameStart, setGameStart] = React.useState(false)
+    const [gameStart, setGameStart] = React.useState(true)
     return (
         <div className="img_and_body">
             <img className="blob-1" src="./images/blob1.png" alt="Blob 1"></img>

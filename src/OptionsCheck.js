@@ -1,12 +1,10 @@
 import React from "react"
 
-export default function OptionsCheck
-(props) {
+export default function OptionsCheck(props) {
     let styling = {};
 
     if(props.item.isHeld) {
         if(props.item.value === props.item.correct_answer) {
-            // props.setCorrectCount(oldvalue => oldvalue+1);
             styling = {
                 backgroundColor: "#94D7A2"
             }
@@ -31,6 +29,6 @@ export default function OptionsCheck
             }
         }
     }
-    // console.log(props.correct_answers_count.length)
+
     return <button style={styling} className="choice">{props.item.value}</button>
 }

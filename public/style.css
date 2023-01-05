@@ -82,6 +82,9 @@ img{
     font-family: 'Inter', sans-serif;
     padding: 3px 10px;
 }
+.choice:active{
+    box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.30) inset;
+}
 .hz{
     color: #DBDEF0;
     border: 0.794239px solid #DBDEF0;
@@ -97,12 +100,20 @@ img{
     font-family: 'Inter', sans-serif;
     color: white;
 }
+.blue-button:active{
+    box-shadow: 5px 5px 15px 2px rgba(0, 0, 0, 0.30) inset;
+}
 .all-questions{
     margin: 0 1.5rem;
 }
 .one-question p{
     font-weight: bold;
     font-family: 'Karla', sans-serif;
+}
+.optionsWithTicks{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 .layout{
     display: flex;
@@ -115,6 +126,10 @@ img{
 }
 .submit {
     color: white;
+}
+.img_res{
+    height: 30px;
+    width: 30px
 }
 .result {
     margin-top: 2.5rem;

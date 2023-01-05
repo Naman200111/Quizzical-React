@@ -3,7 +3,7 @@ import React from "react"
 export default function Options(props) {  
     const [on, setOn] = React.useState(props.item.isHeld)
     const styling = {
-        backgroundColor: on ? "#D6DBF5" : "white",
+        backgroundColor: on ? "#D6DBF5" : "white"
     }
     props.item.isHeld = on;
     return <button 

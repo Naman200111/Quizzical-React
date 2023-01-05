@@ -6,18 +6,34 @@ export default function AnswerSheet(props) {
     function resetGame() {
         props.setGameStart(oldvalue => !oldvalue)
     }
-
+    
     function showOptions(item) {
+        let verdict = false
         const options = item.map(function(item) {
+            if(item.isHeld && item.correct_answer === item.value)
+                verdict = true
             return <OptionsCheck item={item}/>
         })
-        return options
+
+        return (
+            verdict
+            ?
+            <div className="optionsWithTicks">
+                <div>{options}</div>
+                <img className="img_res" src="./images/tick.png" alt="verdict" />
+            </div>
+            :
+            <div className="optionsWithTicks">
+                <div>{options}</div>
+                <img className="img_res" src="./images/cross.jpg" alt="verdict" />
+            </div>
+        )
     }
     const questionsWithOptions = updatedData.map(function(item) {
         return (
             <div className="one-question">
                 <p>{item.ques}</p>
-                {showOptions(item.options)}  
+                {showOptions(item.options)}
                 <hr className="hz"/>
             </div>
         )
