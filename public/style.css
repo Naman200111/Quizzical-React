@@ -13,10 +13,6 @@ body{
 h1{
     font-family: 'Karla',sans-serif;
 }
-/* .img_and_body{
-    position: relative;
-    height: 100vh;
-} */
 .intro-page-body {
     align-items: center;
     display: flex;
@@ -33,16 +29,20 @@ h1{
     text-align: center;
     text-align: center;
 }
-.intro-page-body button{
+.intro-button{
     background-color: #4D5B9E;
     color: #F5F7FB;
     border: none;
     border-radius: 10px;
     height: 52px;
-    width: 190px;
+    width: 175px;
     margin-top: 25px;
     font-weight: 500;
-    /* font-size: 1.125rem; */
+    transition-duration: 0.2s;
+}
+
+.intro-button:active{
+    box-shadow: 3px 3px 5px 5px rgba(0, 0, 0, 0.30) inset;
 }
 .blob-1{
     position: absolute;
@@ -64,23 +64,16 @@ button{
 img{
     max-width: 100%;
 }
-@media screen and (max-width: 425px) {
-    .blob-1{
-        width: 45vw;
-        z-index: -1;
-    }
-    .blob-2{
-        width: 45vw;
-        z-index: -1;
-    }
-}
 .choice{
+    position: relative;
+    z-index: 2;
     min-width: 65px;
     border: 1px solid #4D5B9E;
     border-radius: 7px;
     margin: 10px 15px 10px 0px;
     font-family: 'Inter', sans-serif;
     padding: 3px 10px;
+    transition-duration: 0.2s;
 }
 .choice:active{
     box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, 0.30) inset;
@@ -99,9 +92,15 @@ img{
     border-radius: 10px;
     font-family: 'Inter', sans-serif;
     color: white;
+    transition-duration: 0.2s;
 }
 .blue-button:active{
     box-shadow: 5px 5px 15px 2px rgba(0, 0, 0, 0.30) inset;
+}
+.blue-button:hover{
+    background-color: #F5F7FB;
+    color: black;
+    border: 1px solid black;
 }
 .all-questions{
     margin: 0 1.5rem;
@@ -121,8 +120,6 @@ img{
     gap: 3rem;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    /* margin: 4rem 0; */
 }
 .submit {
     color: white;
@@ -141,4 +138,16 @@ img{
 .score{
     display: flex;
     align-items: center;
+}
+
+
+@media screen and (max-width: 425px) {
+    .blob-1{
+        width: 45vw;
+        z-index: -1;
+    }
+    .blob-2{
+        width: 45vw;
+        z-index: -1;
+    }
 }

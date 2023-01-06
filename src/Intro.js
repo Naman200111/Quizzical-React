@@ -7,8 +7,8 @@ export default function Intro(props) {
     return (
         <div className="intro-page-body">
             <h1>Quizzical</h1>
-            <p>Some description if needed</p>
-            <button className="blue-button" onClick={showQuestions}>Start Quiz</button>
+            <p>Test your Knowledge</p>
+            <button className="intro-button" onClick={showQuestions}>Start Quiz</button>
         </div>
     )
 }
