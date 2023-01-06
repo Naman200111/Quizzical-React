@@ -62,7 +62,8 @@ export default function Questions(props) {
     const questionsWithOptions = updatedData.map(function(item) {
         return (
             <div key={item.id} className="one-question">
-                <p>{item.ques}</p>
+                {/* this dangerouslySetInnerHTML={{__html:item.ques} is used to remove html entities*/}
+                <p dangerouslySetInnerHTML={{__html:item.ques}}></p>
                 {showOptions(item.options,item.id)}  
                 <hr className="hz"/>
             </div>
@@ -75,13 +76,16 @@ export default function Questions(props) {
     function toggleShowAnswers() {
         setShowAnswers(oldvalue => !oldvalue);
         updatedData.map(function(item){
+            let heldAndCorrect = false
             let heldButIncorrect = false
             item.options.map(function(option) {
+                    if(option.isHeld && option.correct_answer === option.value)
+                        heldAndCorrect = true
                     if(option.isHeld && option.correct_answer !== option.value)
                         heldButIncorrect = true
                     return option
                 })
-            if(!heldButIncorrect)
+            if(heldAndCorrect && !heldButIncorrect)
                 setCorrectCount(oldvalue => oldvalue+1);
             return item
         })

@@ -9,14 +9,17 @@ export default function AnswerSheet(props) {
     
     function showOptions(item) {
         let verdict = false
+        let heldIncorrect = false
         const options = item.map(function(item) {
             if(item.isHeld && item.correct_answer === item.value)
                 verdict = true
+            if(item.isHeld && item.correct_answer !== item.value)
+                heldIncorrect = true
             return <OptionsCheck key={item.id} item={item}/>
         })
 
         return (
-            verdict
+            verdict && !heldIncorrect
             ?
             <div className="optionsWithTicks">
                 <div>{options}</div>
@@ -32,7 +35,7 @@ export default function AnswerSheet(props) {
     const questionsWithOptions = updatedData.map(function(item) {
         return (
             <div key={item.id} className="one-question">
-                <p>{item.ques}</p>
+                <p dangerouslySetInnerHTML={{__html:item.ques}}></p>
                 {showOptions(item.options)}
                 <hr className="hz"/>
             </div>

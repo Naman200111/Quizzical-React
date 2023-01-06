@@ -26,7 +26,7 @@ export default function Options(props) {
                 onClick={() => props.handleClick((setOn))}
                 onMouseEnter = {onMouseEnter}
                 onMouseLeave = {onMouseLeave}
-            >
-                    {props.item.value}
+                dangerouslySetInnerHTML={{__html:props.item.value}}
+            >      
             </button>
 }

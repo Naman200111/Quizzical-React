@@ -30,5 +30,10 @@ export default function OptionsCheck(props) {
         }
     }
 
-    return <button style={styling} className="choice">{props.item.value}</button>
+    return <button 
+                style={styling} 
+                className="choice"
+                dangerouslySetInnerHTML={{__html:props.item.value}}
+            >
+            </button>
 }
