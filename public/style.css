@@ -42,10 +42,10 @@ h1{
 }
 
 .intro-button:active{
-    box-shadow: 3px 3px 5px 5px rgba(0, 0, 0, 0.30) inset;
+    box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7)
 }
 .blob-1{
-    position: absolute;
+    position: fixed;
     right: 0;
     top: 0;
     width: 30%;
@@ -70,7 +70,7 @@ img{
     min-width: 65px;
     border: 1px solid #4D5B9E;
     border-radius: 7px;
-    margin: 10px 15px 10px 0px;
+    margin: 7px 10px 5px 0px;
     font-family: 'Inter', sans-serif;
     padding: 3px 10px;
     transition-duration: 0.2s;
@@ -86,22 +86,19 @@ img{
 }
 .blue-button{
     background-color: #4D5B9E;
-    height: 35px;
-    width: 120px;
+    padding: 1em;
     border: none;
     border-radius: 10px;
     font-family: 'Inter', sans-serif;
     color: white;
     transition-duration: 0.2s;
-    margin-bottom: 3em;
 }
 .blue-button:active{
-    box-shadow: 5px 5px 15px 2px rgba(0, 0, 0, 0.30) inset;
+    box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7)
 }
-.blue-button:hover{
-    background-color: #F5F7FB;
-    color: black;
-    border: 1px solid black;
+
+.checkBtn{
+    margin-bottom: 5em;
 }
 .all-questions{
     margin: 0 1.5rem;
@@ -120,7 +117,7 @@ img{
     flex-direction: column;
     gap: 3rem;
     align-items: center;
-    margin: 5em 1em;
+    margin: 10em 1em;
 }
 .submit {
     color: white;
@@ -130,13 +127,17 @@ img{
     width: 30px
 }
 .result {
-    margin-top: 2.5rem;
     display: flex;
-    width: 125%;
+    align-items: center;
     justify-content: space-evenly;
     font-family: 'Inter', sans-serif;
+    margin: 3em 0em;
 }
 .score{
+    font-size: 0.75em;
+    margin-right: 1em;
+}
+.resetGame{
     display: flex;
     align-items: center;
 }

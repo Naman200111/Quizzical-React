@@ -1,6 +1,6 @@
 import React from "react"
 import Options from "./Options"
-import AnswerSheet from "./AnswerSheet"
+import AnswerCheck from "../AnswerSheet/AnswerCheck"
 
 export default function Questions(props) {
     const [data, setData] = React.useState([])
@@ -94,7 +94,7 @@ export default function Questions(props) {
     return (
         showAnswers
         ?
-            <AnswerSheet 
+            <AnswerCheck
                 apiData = {data}
                 data = {updatedData}
                 setGameStart={props.setGameStart}
@@ -107,7 +107,7 @@ export default function Questions(props) {
                 </div>
                 <div>
                     <button 
-                        className="blue-button" 
+                        className="blue-button checkBtn" 
                         onClick={toggleShowAnswers}
                     >
                         Check answers

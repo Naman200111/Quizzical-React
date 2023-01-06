@@ -50,7 +50,9 @@ export default function AnswerSheet(props) {
                     <div className="score">
                         <h2>{`You scored ${props.correct}/5 correct answer`}</h2>
                     </div>
-                    <button className="blue-button" onClick={resetGame}>Play Again</button>
+                    <div class="resetGame">
+                        <button className="blue-button" onClick={resetGame}>Play Again</button>
+                    </div>
                 </div>
             </div>
         </div>
